@@ -1,0 +1,6 @@
+<p>products-list works!</p>
+<div *ngFor="let product of this.products | async; let i = index">
+  <img [src]="product.image" [alt]="product.title" />
+  <p>{{ product.title }}</p>
+  <a [routerLink]="[product.id]">details</a>
+</div>

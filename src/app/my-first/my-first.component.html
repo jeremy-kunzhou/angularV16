@@ -1,0 +1,27 @@
+<div>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label> name </label>
+      <input type="text" [(ngModel)]="name" name="name" />
+    </div>
+    <div>
+      <label> email </label>
+      <input type="text" [(ngModel)]="email" name="email" />
+    </div>
+    <div>
+      <label> message </label>
+      <textarea type="text" [(ngModel)]="content" name="content"></textarea>
+    </div>
+    <button type="submit">submit</button>
+  </form>
+  <div *ngIf="messages.length > 0">Message List</div>
+  <div *ngFor="let msg of messages; let i = index">
+    <div>
+      <app-message-details
+        [message]="msg"
+        [index]="i"
+        (delete)="onDelete($event)"
+      ></app-message-details>
+    </div>
+  </div>
+</div>
